@@ -2,7 +2,7 @@ export const select = {
   templateOf: {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
-    bookingWidget: '# template-booking-widget',
+    bookingWidget: '#template-booking-widget',
   },
   containerOf: {
     menu: '#product-list',
@@ -29,7 +29,7 @@ export const select = {
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
-    datePicker: {
+    datePicker: {             
       wrapper: '.date-picker',
       input: `input[name="date"]`,
     },
@@ -47,7 +47,6 @@ export const select = {
   nav: {
     links: '.main-nav a',
   },
-  
   cart: {
     productList: '.cart__order-summary',
     toggleTrigger: '.cart__summary',
@@ -125,5 +124,5 @@ export const settings = {
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
-  //bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+  bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
 };

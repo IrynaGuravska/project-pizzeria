@@ -1,19 +1,12 @@
 import {settings, select} from '../settings.js';
 
 class AmountWidget{
-  constructor(element, valueFromCartProduct){
+  constructor(element){
     const thisWidget = this;
 
     thisWidget.getElements(element);
-    if (valueFromCartProduct){
-      thisWidget.setValue(valueFromCartProduct);
-    }else{
-      thisWidget.setValue(settings.amountWidget.defaultValue);
-    }
+    thisWidget.setValue(settings.amountWidget.defaultValue);
     thisWidget.initActions();
-
-    //console.log('AmountWidget:', thisWidget);
-    //console.log('constructor arguments:', element);
   }
 
   getElements(element){
@@ -27,24 +20,26 @@ class AmountWidget{
 
   setValue(value){
     const thisWidget = this;
+
     const newValue = parseInt(value);
-     
+
     /*TODO Add validation*/
     if(thisWidget.value !== newValue && !isNaN(newValue) && (newValue >= settings.amountWidget.defaultMin) && 
      (newValue <= settings.amountWidget.defaultMax)){
       thisWidget.value = newValue;
     }
      
+    thisWidget.announce(); 
+    
     thisWidget.input.value = thisWidget.value;
-    //console.log(thisWidget.value);
-    thisWidget.announce();
   }  
   
   announce(){
     const thisWidget = this;
 
     const event = new CustomEvent('updated',{
-      bubbles: true});
+      bubbles: true
+    });
     thisWidget.element.dispatchEvent(event);
   }
   
@@ -52,6 +47,7 @@ class AmountWidget{
     const thisWidget = this;
 
     thisWidget.input.addEventListener('change', function(){
+      event.preventDefault();
       thisWidget.setValue(thisWidget.input.value);
     });
 

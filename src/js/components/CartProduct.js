@@ -10,6 +10,8 @@ class CartProduct{
     thisCartProduct.amount = menuProduct.amount;
     thisCartProduct.price = menuProduct.price;
     thisCartProduct.priceSingle = menuProduct.priceSingle;
+    thisCartProduct.price = menuProduct.price;
+    thisCartProduct.params = menuProduct.params;
 
     thisCartProduct.getElements(element);
     thisCartProduct.AmountWidget();

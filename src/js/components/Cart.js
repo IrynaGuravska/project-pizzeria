@@ -63,8 +63,8 @@ class Cart{
     };
     console.log('sendOrder', payload);
 
-    for(let prod of thisCart.products) {
-      payload.products.push(prod.getData());
+    for(let product of thisCart.products) {
+      payload.products.push(product.getData());
     }
 
     const options = {
@@ -94,7 +94,6 @@ class Cart{
 
     /*all element to menu*/
     thisCart.dom.productList.appendChild(generatedDOM);
-    //console.log('adding product', menuProduct);
 
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
     thisCart.update();
@@ -103,7 +102,7 @@ class Cart{
   update(){
     const thisCart = this;
 
-    thisCart.deliveryFee = 0;
+    thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
     thisCart.totalNumber = 0;
     thisCart.subtotalPrice = 0;
 
@@ -112,10 +111,9 @@ class Cart{
       thisCart.subtotalPrice += product.price;
     }
 
-    if (thisCart.totalNumber != 0){
-      thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
+    if (thisCart.totalNumber !== 0){
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
-    } else if(thisCart.totalNumber == 0){
+    } else {thisCart.totalNumber == 0;
       thisCart.totalPrice = 0;
       thisCart.dom.deliveryFee.innerHTML = 0;
     }
@@ -129,14 +127,12 @@ class Cart{
     }
   }
 
-  remove(event){
+  remove(cartProduct){
     const thisCart = this;
 
-    event.dom.wrapper.remove();
+    cartProduct.dom.wrapper.remove();
 
-    console.log('event.dom.wrapper', event.dom.wrapper);
-
-    const remuvedProducts = thisCart.products.indexOf(event);
+    const remuvedProducts = thisCart.products.indexOf(cartProduct);
     thisCart.products.splice(remuvedProducts, 1);
     thisCart.update();
   }
