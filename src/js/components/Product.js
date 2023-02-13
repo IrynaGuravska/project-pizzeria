@@ -171,8 +171,8 @@ class Product{
     const event = new CustomEvent('add-to-cart', {
       bubbles: true,
       detail: {
-        product: thisProduct,
-      }
+        product: thisProduct.readyCartProduct(),
+      },
     });
     
     thisProduct.element.dispatchEvent(event);
