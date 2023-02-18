@@ -4,7 +4,6 @@ class BaseWidget {
 
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
-
     thisWidget.correctValue = initialValue;
   }
 
@@ -22,7 +21,7 @@ class BaseWidget {
     if(thisWidget.correctValue !== newValue && thisWidget.isValid(newValue)) {
 
       thisWidget.correctValue = newValue;
-      thisWidget.annouce();
+      thisWidget.announce();
 
     }
 
@@ -49,7 +48,7 @@ class BaseWidget {
     thisWidget.dom.wrapper.innerHTML = thisWidget.value;
   }
 
-  annouce() {
+  announce() {
     const thisWidget = this;
 
     const event = new CustomEvent('updated', {

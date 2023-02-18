@@ -172,7 +172,13 @@
       }
   
     }
+
+    &.selected {
+      background: rgb(39, 146, 3);
+      border: 2px solid rgb(63, 23, 6);
+    }  
   }
+
   
   [data-table="1"] {
     left: 40px;
