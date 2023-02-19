@@ -208,7 +208,7 @@
    "events":[
       {
         "id": 1,
-        "date": "2021-02-16",
+        "date": "2021-02-21",
         "hour": "12:30",
         "table": 1,
         "repeat": false,
@@ -260,7 +260,7 @@
     "bookings": [
       {
          "id": 1,
-         "date": "2021-02-15",
+         "date": "2021-02-21",
          "hour": "13:00",
          "table": 1,
          "repeat": false,
