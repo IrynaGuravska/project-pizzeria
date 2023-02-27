@@ -7,10 +7,11 @@ import HourPicker from './HourPicker.js';
 class Booking {
   constructor(element){
     const thisBooking = this;
+    thisBooking.tableSelected = [];
+    //thisBooking.initTables();
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
-    thisBooking.tableSelected ='';
   }
 
   getData(){
@@ -62,11 +63,11 @@ class Booking {
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]) {
-        thisBooking.parserData(bookings, eventsCurrent, eventsRepeat);
+        thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }  
 
-  parserData(bookings, eventsCurrent, eventsRepeat){
+  parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
 
     thisBooking.booked = {};
@@ -141,41 +142,6 @@ class Booking {
     }
   }
 
-  initTables(event) {
-    const thisBooking = this;
-
-    /* NEW find clicked element */
-    const clickedElement = event.target;
-    event.preventDefault();
-
-    /* NEW find table id of clicked table */
-    const tableId = clickedElement.getAttribute('data-table');
-    // console.log('tableId', tableId);
- 
-    /* NEW if a table was clicked */
-    if (tableId) {
-
-      /* if a table is already booked - show alert */
-      if (clickedElement.classList.contains(classNames.booking.tableBooked)) {
-        alert('Ten stolik jest zajęty');
-
-        /* if it's not booked */
-      } else {
-
-        /*for every table - if it contains class selected and it's not a clicked element - remove class selected */
-        for (const table of thisBooking.dom.tables) {
-          if (table.classList.contains(classNames.booking.tableSelected) && table !== clickedElement) {
-            table.classList.remove(classNames.booking.tableSelected);
-          }
-        }
-
-        /* other way - the table is selected - add class selected */
-        thisBooking.tableSelected = tableId;
-        clickedElement.classList.add(classNames.booking.tableSelected);
-      }
-    }
-  }
-
   render(element){
     const thisBooking = this;
 
@@ -192,11 +158,48 @@ class Booking {
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
-    thisBooking.dom.tablesContainer = thisBooking.dom.wrapper.querySelector(select.booking.allTables);
+    thisBooking.dom.allTables = thisBooking.dom.wrapper.querySelector(select.booking.allTables);
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
     thisBooking.dom.submit = thisBooking.dom.wrapper.querySelector(select.booking.submit);
+    thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
+  }
+
+  initTables(event) {
+    const thisBooking = this;
+
+    /* NEW find clicked element */
+    const clickedElement = event.target;
+    event.preventDefault();
+
+    /* NEW find table id of clicked table */
+
+    const tableId = clickedElement.getAttribute(settings.booking.tableIdAttribute);
+
+    /* NEW if a table was clicked */
+    if (tableId) {
+
+      /* if a table is already booked - show alert */
+      if (clickedElement.classList.contains(classNames.booking.tableBooked)) {
+        alert('Sorry. This table is booked!');
+      } else {
+        /*for every table - if it contains class selected and it's not a clicked element - remove class selected */
+        for (let table of thisBooking.dom.tables) {
+          if (table.classList.contains(classNames.booking.tableSelected) && 
+            table != clickedElement) {
+            table.classList.remove(classNames.booking.tableSelected);
+          }
+          clickedElement.classList.toggle(classNames.booking.tableSelected);
+          if(clickedElement.classList.contains(classNames.booking.tableSelected)){
+            thisBooking.tableSelected.push(tableId);
+          } else {
+            thisBooking.tableSelected.splice(thisBooking.tableSelected.indexOf(tableId), 1);
+          }
+        }
+      }
+    }
+    thisBooking.updateDOM();
   }
 
   initWidgets(){
@@ -215,11 +218,11 @@ class Booking {
       thisBooking.updateDOM();
     });
 
-    thisBooking.dom.tablesContainer.addEventListener('click', function(event){
+    thisBooking.dom.allTables.addEventListener('click', function(event){
       thisBooking.initTables(event);
     });
 
-    thisBooking.dom.tablesContainer.addEventListener('submit', function (event) {
+    thisBooking.dom.allTables.addEventListener('submit', function (event) {
       event.preventDefault();
       thisBooking.sendBooking();
     });
@@ -240,13 +243,14 @@ class Booking {
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.address.value,
     };
+
     
     for (let starter of thisBooking.dom.starters) {
-      console.log('starter', starter);
       if (starter.checked) {
         payload.starters.push(starter.value);
       }
     }
+    console.log('payload', payload);
 
     const options = {
       method: 'POST',

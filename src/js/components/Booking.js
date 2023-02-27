@@ -8,6 +8,7 @@ class Booking {
   constructor(element){
     const thisBooking = this;
     thisBooking.tableSelected = [];
+    //thisBooking.initTables();
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -62,11 +63,11 @@ class Booking {
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]) {
-        thisBooking.parserData(bookings, eventsCurrent, eventsRepeat);
+        thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }  
 
-  parserData(bookings, eventsCurrent, eventsRepeat){
+  parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
 
     thisBooking.booked = {};
