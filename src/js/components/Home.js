@@ -5,6 +5,7 @@ class Home{
     const thisHome = this;
 
     thisHome.render(element);
+    thisHome.initPages();
   }
 
   render(element){
