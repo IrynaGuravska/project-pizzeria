@@ -80,46 +80,150 @@
     <div class="home-header mt-4 rounded">
       <div class="navigation container py-5">
         <div class="row">
-          <div class="col-6 p-0">
-            <div class="card position-relative">
-              <a href="#order">
-                <img src="images/assets/pizza-1.jpg" class="img-fluid rounded">
-              </a>
-              <div class="card-body position-absolute">
-                <div class="card-body-dynamic">
-                  <h3>ORDER ONLINE</h3>
+          <div class="col-md-6 p-0 home-nav">
+            <a href="#order">
+              <div class="card position-relative d-flex justify-content-center mb-2 me-1 border-0">
+                <img src="images/assets/pizza-1.jpg" class="img-fluid rounded  object-fit-cover" alt="order image" title="order online">
+                <div class="move card-body position-absolute align-self-center">
+                  <p class="box-header">Order online</p>
+                  <p class="box-description">Delicious food deliviered to your door</p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
-          <div class="col-6 p-0">
-            <div class="card position-relative">
-              <a href="#booking">
-                <img src="images/assets/pizza-2.jpg" class="img-fluid rounded">
-              </a>
-              <div class="card-body position-absolute">
-                <div class="card-body-dynamic">
-                  <h3>BOOK A TABLE</h3>
+          <div class="col-md-6 p-0 home-nav">
+            <a href="#booking">
+              <div class="card position-relative d-flex justify-content-center mb-2 me-1 border-0">
+                <img src="images/assets/pizza-2.jpg" class="img-fluid rounded  object-fit-cover" alt="booking image" title="book a table">
+                <div class="move card-body position-absolute align-self-center">
+                  <p class="box-header">Book a table</p>
+                  <p class="box-description">Delicious food in a beautiful restaurant</p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
-          <div class="col-12 px-0 rounded opening-hour">
-            <div class="card position-relative align-items-center">
-              <div class="card-body position-absolute d-flex flex-column justify-content-center">
-                <h3>OPENING HOURS:</h3>
-                <h4>TUE-SUN,12PM-11PM</h4>
+          <div class="col-12 px-0">
+            <div class="card position-relative align-items-center px-0 rounded opening-hour border-0">
+              <div class="card-body position-absolute d-flex flex-column pt-4">
+                <h2 class="hours-header d-flex ">Opening-hours:</h2>
+                <h2 class="hours">Tue-Sun, 12pm-12am</h2>
               </div>
             </div>
           </div>
 
         </div>
       </div>
-    </div>
-  </script>
 
+      <div class="opinions container pt-5 pb-5 px-2">
+        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "autoPlay": true, "prevNextButtons": false }'>
+          <div class="carousel-cell row d-flex justify-content-between">
+            <div class="col-4 p-0">
+              <img class="img-fluid rounded" src="images/assets/pizza-3.jpg" alt="pizza-3" title="pizza-3">
+            </div>
+            <div class="opinion col-7">
+              <p class="opinion-title">AMAZING SERVICE!</p>
+              <p class="opinion-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus tempor odio at gravida. Curabitur faucibus quis ipsum vel porta.</p>
+              <p class="opinion-author">- Tom Felton</p>
+            </div>
+          </div>
+
+          <div class="carousel-cell row d-flex justify-content-between">
+            <div class="col-4 p-0">
+              <img class="img-fluid rounded" src="images/assets/pizza-3.jpg" alt="pizza-3" title="pizza-3">
+            </div>
+            <div class="opinion col-7">
+              <p class="opinion-title">THE BEST PIZZA!</p>
+              <p class="opinion-text">Vestibulum eget odio vitae magna lacinia feugiat. Ut consectetur sapien fermentum, laoreet erat ac, pellentesque augue.</p>
+              <p class="opinion-author">- Jenna Ortega</p>
+            </div>
+          </div>
+
+          <div class="carousel-cell row d-flex justify-content-between">
+            <div class="col-4 p-0">
+              <img class="img-fluid rounded" src="images/assets/pizza-3.jpg" alt="pizza-3" title="pizza-3">
+            </div>
+            <div class="opinion col-7">
+              <p class="opinion-title">GOOD FOOD!</p>
+              <p class="opinion-text">Ut fringilla tempor nulla at feugiat. Suspendisse et convallis eros, ut egestas nulla. Cras fringilla augue justo, eu facilisis odio iaculis eu.</p>
+              <p class="opinion-author">- Devid Guetta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery container pt-5 pb-4 px-2">
+        <div class="row">
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover " src="images/assets/pizza-4.jpg" alt="pizza-4" title="pizza-4">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover" src="images/assets/pizza-5.jpg" alt="pizza-5" title="pizza-5">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover" src="images/assets/pizza-6.jpg" alt="pizza-6" title="pizza-6">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover" src="images/assets/pizza-7.jpg" alt="pizza-7" title="pizza-7">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover" src="images/assets/pizza-8.jpg" alt="pizza-8" title="pizza-8">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="card image position-relative d-flex justify-content-center m-1">
+              <img class="rounded object-fit-cover" src="images/assets/pizza-9.jpg" alt="pizza-9" title="pizza-9">
+              <div class="icons card-body position-absolute align-self-center">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="instagram container px-0">
+        <a href="instagram.com" target="_blank">
+          View more on Instagram
+        </a>
+      </div>
+    </script>
 
   <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">
@@ -179,8 +283,8 @@
           </div>
         </div>
         <div class="order-confirmation">
-          <input type="tel" name="phone" placeholder="Your phone">
-          <input type="text" name="address" placeholder="Your address">
+          <input type="tel" name="phone" placeholder="Your phone" required>
+          <input type="text" name="address" placeholder="Your address" required>
           <button type="submit" class="btn-secondary">Book table</button>
         </div>
       </form>
