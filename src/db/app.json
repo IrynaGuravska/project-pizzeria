@@ -248,13 +248,14 @@
       },
       {
         "id": 5,
-        "date": "2021-02-21",
-        "hour": "18:00",
-        "table": 2,
-        "repeat": "daily",
-        "duration": 2,
-        "ppl": 3,
-        "starters": ["lemonWater"]
+        "date": "2021-03-10",
+        "hour": "12:00",
+        "table": null,
+        "duration": 1,
+        "ppl": 1,
+        "phone": "",
+        "address": "",
+        "starters": []
       }
     ],
     "bookings": []
