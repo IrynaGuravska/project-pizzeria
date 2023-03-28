@@ -31,7 +31,7 @@ export const select = {
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
-    datePicker: {             
+    datePicker: {
       wrapper: '.date-picker',
       input: `input[name="date"]`,
     },
@@ -45,16 +45,18 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
-    allTables: '.floor-plan',
-    phone: '.order-confirmation [name="phone"]',
-    address: '.order-confirmation [name="address"]',
-    starters: '[name="starter"]',
-    submit: '.booking-form',
+    floor: '.floor-plan',
+    starters: 'input[type="checkbox"]',
+    phone: 'input[name="phone"]',
+    address: 'input[name="address"]',
+    bookingSubmit: '.booking-form',
   },
   nav: {
     links: '.main-nav a',
   },
-  
+  home: {
+    links: '.home-nav a',
+  },
   cart: {
     productList: '.cart__order-summary',
     toggleTrigger: '.cart__summary',
@@ -73,9 +75,6 @@ export const select = {
     edit: '[href="#edit"]',
     remove: '[href="#remove"]',
   },
-  home: {
-    homeLinks: '.home-btn',
-  },
 };
 
 export const classNames = {
@@ -91,34 +90,23 @@ export const classNames = {
     table: 'table',
     tableBooked: 'booked',
     tableSelected: 'selected',
-
   },
   nav: {
     active: 'active',
   },
   pages: {
     active: 'active',
-  }
+  },
 };
 
 export const settings = {
   amountWidget: {
     defaultValue: 1,
     defaultMin: 1,
-    defaultMax: 9,
-  }, 
+    defaultMax: 10,
+  },
   cart: {
     defaultDeliveryFee: 20,
-  },
-  hours: {
-    open: 12,
-    close: 24,
-  },
-  datePicker: {
-    maxDaysInFuture: 14,
-  },
-  booking: {
-    tableIdAttribute: 'data-table',
   },
   db: {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
@@ -130,6 +118,16 @@ export const settings = {
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
     repeatParam: 'repeat_ne=false',
+  },
+  hours: {
+    open: 12,
+    close: 24,
+  },
+  datePicker: {
+    maxDaysInFuture: 14,
+  },
+  booking: {
+    tableIdAttribute: 'data-table',
   },
 };
 
