@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-recommended-scss",
   "rules": {
+    "scss/at-extend-no-missing-placeholder": null,
     "block-no-empty": true,
     "color-no-invalid-hex": true,
     "comment-empty-line-before": null,
@@ -20,7 +21,6 @@
     "no-descending-specificity": null,
     "scss/selector-no-redundant-nesting-selector": true,
     "scss/no-duplicate-dollar-variables": true,
-    "scss/no-global-function-names": null,
-    "scss/at-extend-no-missing-placeholder": null
+    "scss/no-global-function-names": null
   }
 }
